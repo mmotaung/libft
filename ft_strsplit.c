@@ -6,7 +6,7 @@
 /*   By: mmotaung <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/18 11:20:04 by mmotaung          #+#    #+#             */
-/*   Updated: 2019/06/22 13:04:38 by mmotaung         ###   ########.fr       */
+/*   Updated: 2019/06/22 13:41:52 by mmotaung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,19 +41,19 @@ char			**ft_strsplit(char const *s, char c)
 
 	i = 0;
 	col = 0;
-	if (!str || !(tab = (char **)malloc(sizeof(char *) *
-					ft_wordcount(str, c) + 1)))
+	if (!s || !(tab = (char **)malloc(sizeof(char *) *
+					ft_wordcount(s, c) + 1)))
 		return (NULL);
-	while (str[i])
+	while (s[i])
 	{
-		if (str[i] == c)
+		if (s[i] == c)
 			i++;
 		else
 		{
 			start = i;
-			while (str[i] && str[i] != c)
+			while (s[i] && s[i] != c)
 				i++;
-			tab[col++] = ft_strsub(str, start, i - start);
+			tab[col++] = ft_strsub(s, start, i - start);
 		}
 	}
 	tab[col] = NULL;
