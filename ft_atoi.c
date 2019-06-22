@@ -1,40 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_ato.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmotaung <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/27 13:44:30 by mmotaung          #+#    #+#             */
-/*   Updated: 2019/06/13 08:30:36 by mmotaung         ###   ########.fr       */
+/*   Created: 2019/06/22 11:06:56 by mmotaung          #+#    #+#             */
+/*   Updated: 2019/06/22 11:47:07 by mmotaung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_atoi(const char *s)
+int		ft_atoi(const char *str)
 {
-	unsigned int		i;
-	unsigned int		j;
-	unsigned int		n;
+	long	i;
+	int		j;
 
 	i = 0;
-	j = 0;
-	n = 0;
-	while (s[i] == '\t' || s[i] == '\v' ||
-			s[i] == '\r' || s[i] == '\f' ||
-			s[i] == '\n' || s[i] == ' ')
-		i++;
-	if (s[i] == '-')
+	while ((*str >= '\t' && *str <= '\r') || (*str == ' '))
+		str++;
+	if (*str == '-')
+		j = -1;
+	else
 		j = 1;
-	if (s[i] == '-' || s[i] == '+')
-		i++;
-	while (s[i] >= '0' && s[i] <= '9')
-	{
-		n = n * 10 + (s[i] - '0');
-		i++;
-	}
-	if (j == 1)
-		return (-n);
-	return (n);
+	if (*str == '-' || *str == '+')
+		str++;
+	while (*str >= '0' && *str <= '9')
+		i = (i * 10) + (*str++ - '0');
+	if (i < 0 && j == 1)
+		return (-1);
+	if (i < 0)
+		return (0);
+	return (i * j);
 }
