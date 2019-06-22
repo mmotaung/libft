@@ -6,7 +6,7 @@
 /*   By: mmotaung <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/18 11:20:04 by mmotaung          #+#    #+#             */
-/*   Updated: 2019/06/18 11:24:39 by mmotaung         ###   ########.fr       */
+/*   Updated: 2019/06/22 13:04:38 by mmotaung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ static size_t	ft_wordcount(const char *str, char c)
 	return (size);
 }
 
-char			**ft_strsplit(const char *str, char c)
+char			**ft_strsplit(char const *s, char c)
 {
 	char	**tab;
 	int		i;
